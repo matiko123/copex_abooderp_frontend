@@ -1,7 +1,7 @@
-import { MACARGO_API_URL_2  } from "@/config/config.js";
+import { COPEX_API_URL  } from "@/config/config.js";
 
 
-const getApiBase = () => (MACARGO_API_URL_2 )
+const getApiBase = () => (COPEX_API_URL )
 interface CreateAccountPayload {
   name: string
   code: string

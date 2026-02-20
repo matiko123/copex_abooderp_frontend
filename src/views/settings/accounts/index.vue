@@ -150,7 +150,7 @@
 <script setup>
 import { reactive, ref, onMounted, computed } from 'vue';
 import axios from 'axios';
-import { MACARGO_API_URL_2  } from "@/config/config.js";
+import { COPEX_API_URL  } from "@/config/config.js";
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import StandardDataTable from '@/components/plugins/StandardDataTable.vue';
@@ -248,7 +248,7 @@ const form = reactive({
 });
 
 const axiosInstance = axios.create({
-  baseURL: MACARGO_API_URL_2,
+  baseURL: COPEX_API_URL,
   headers: { "Content-Type": "application/json" }
 });
 

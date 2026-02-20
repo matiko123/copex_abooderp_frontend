@@ -542,7 +542,7 @@
 <script setup>
 import { ref, onMounted, watch, computed } from "vue";
 
-import { MACARGO_API_URL_2 } from "@/config/config.js";
+import { COPEX_API_URL } from "@/config/config.js";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import { useNotification } from "@/composables/notification";
@@ -551,14 +551,14 @@ import { PerfectScrollbar } from "vue3-perfect-scrollbar";
 const authStore = useAuthStore();
 const permissions = authStore.permissions;
 const axiosInstance = axios.create({
-     baseURL: MACARGO_API_URL_2,
+     baseURL: COPEX_API_URL,
     // baseURL: "http://127.0.0.1:8000/api/v1/",
     headers: {
         "Content-Type": "application/json",
     },
 });
 const axiosInstance1 = axios.create({
-    baseURL: MACARGO_API_URL_2,
+    baseURL: COPEX_API_URL,
     headers: {
         "Content-Type": "application/json",
     },
@@ -585,7 +585,7 @@ const vehicleService = {
 async  getVehicleDetails() {
   try {
     const response = await fetch(
-      `${MACARGO_API_URL_2}/vehicle-assets/${route.params.id}`
+      `${COPEX_API_URL}/vehicle-assets/${route.params.id}`
     );
 
     const result = await response.json();
@@ -1045,7 +1045,7 @@ const updateVehicleDetails = async () => {
         };      
 
         const response = await fetch(
-            `${MACARGO_API_URL_2}vehicle-master/fleet/vehicles/update/${realVehicleid.value}`,
+            `${COPEX_API_URL}vehicle-master/fleet/vehicles/update/${realVehicleid.value}`,
             {
                 method: "POST",
                 headers: {

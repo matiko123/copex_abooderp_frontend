@@ -161,13 +161,13 @@ import axios from 'axios';
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import AccountTreeSearch from './AccountTreeSearch.vue'
-import { MACARGO_API_URL_2  } from "@/config/config.js";
+import { COPEX_API_URL  } from "@/config/config.js";
 import { accountService } from '@/services/macargo/accountService'
 import Swal from 'sweetalert2'
 
 
 const axiosInstance = axios.create({
-  baseURL: MACARGO_API_URL_2,
+  baseURL: COPEX_API_URL,
   headers: { "Content-Type": "application/json" }
 });
 interface Account {
@@ -226,7 +226,7 @@ const fetchAccounts = async () => {
 
   try {
     // Build URL with company_id parameter
-    const baseUrl = (MACARGO_API_URL_2 || 'http://localhost:8000/api/v1/').replace(/\/$/, '')
+    const baseUrl = (COPEX_API_URL || 'http://localhost:8000/api/v1/').replace(/\/$/, '')
     const url = new URL(`${baseUrl}/chart-of-accounts/tree`)
     url.searchParams.set('company_id', String(companyId.value))
 
@@ -447,7 +447,7 @@ const handleCreateAccount = async () => {
 
 const exportToPDF = () => {
   // Open PDF in new tab instead of downloading
-  const baseUrl = MACARGO_API_URL_2.replace(/\/$/, '')
+  const baseUrl = COPEX_API_URL.replace(/\/$/, '')
   const url = new URL(`${baseUrl}/chart-of-accounts/print`)
   url.searchParams.set('format', 'pdf')
   url.searchParams.set('company_id', String(companyId.value))

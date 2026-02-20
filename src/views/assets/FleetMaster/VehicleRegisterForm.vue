@@ -402,7 +402,7 @@
 import { ref, onMounted, computed, watch, nextTick, defineExpose, reactive } from 'vue';
 import StandardDataTable from '@/components/plugins/StandardDataTable.vue';
 import { useRouter } from 'vue-router';
-import { MACARGO_API_URL_2 } from '@/config/config.js';
+import { COPEX_API_URL } from '@/config/config.js';
 import { useNotification } from '@/composables/notification';
 
 import { useAuthStore } from "@/stores/auth";
@@ -602,7 +602,7 @@ const edit = (data) => {
 const fetchFormData = async () => {
   formDataLoading.value = true;
   try {
-    const res = await fetch(`${MACARGO_API_URL_2}/vehicle-assets/metadata`);
+    const res = await fetch(`${COPEX_API_URL}/vehicle-assets/metadata`);
     const data = await res.json();
     if (data.success) {
       formData.value = data.data;
@@ -656,7 +656,7 @@ const fetchVehicles = async (page = pagination.value.currentPage) => {
   loading.value = true;
   error.value = '';
   try {
-    const url = new URL(`${MACARGO_API_URL_2}/vehicle-assets`);
+    const url = new URL(`${COPEX_API_URL}/vehicle-assets`);
     url.searchParams.set('page', String(page));
     const perPage = tableFilters.value.pageSize || pagination.value.perPage || 10;
     pagination.value.perPage = perPage;
@@ -806,7 +806,7 @@ const onSubmit = async () => {
 
  let  response = ''
  if(form.value.id === null) {
-    response = await fetch(`${MACARGO_API_URL_2}/vehicle-assets/`, {
+    response = await fetch(`${COPEX_API_URL}/vehicle-assets/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -815,7 +815,7 @@ const onSubmit = async () => {
     });
  }
  else{
-   response = await fetch(`${MACARGO_API_URL_2}/vehicle-assets/${form.value.id}`, {
+   response = await fetch(`${COPEX_API_URL}/vehicle-assets/${form.value.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -951,7 +951,7 @@ function openDriverAssignment() {
 
 async function fetchDrivers() {
   try {
-    const response = await fetch(`${MACARGO_API_URL_2}/driver-master/driver_list`);
+    const response = await fetch(`${COPEX_API_URL}/driver-master/driver_list`);
     const data = await response.json();
 
     if (data.driver && Array.isArray(data.driver)) {

@@ -31,6 +31,6 @@ export const API_URL4 = "https://197-250-2-138.sslip.io/api/v1/agency/";
 export const BASE_URL_1 = 'https://absapp.abooderp.com/api/v1';
 
 
-export const COPEX_API_URL = 'http://127.0.0.1:8100/api/v1';
+export const COPEX_API_URL = 'http://127.0.0.1:8000/api/v1';
 
 
