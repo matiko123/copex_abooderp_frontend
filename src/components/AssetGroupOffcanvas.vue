@@ -233,7 +233,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
-import assetGroupService, { type AssetGroup } from '@/services/assetGroupService'
+import assetGroupService, { type AssetGroup } from '@/services/copex/assetGroupService'
 import { useToast } from '@/composables/useToast'
 
 const toast = useToast()
@@ -384,7 +384,7 @@ async function handleSubmit() {
   saving.value = true
 
   const payload: Partial<AssetGroup> = {
-    company_id: 1,
+    company_id: 6,
     code: form.value.code.trim(),
     name: form.value.name.trim(),
     asset_class: form.value.asset_class as any,
@@ -406,11 +406,11 @@ async function handleSubmit() {
     let response
     if (isEditMode.value && props.assetGroupToEdit?.id) {
       // Update
-      // response = await assetGroupService.updateAssetGroup(props.assetGroupToEdit.id, payload)
+       response = await assetGroupService.updateAssetGroup(props.assetGroupToEdit.id, payload)
       toast.success('Asset group updated successfully')
     } else {
       // Create
-      // response = await assetGroupService.createAssetGroup(payload)
+       response = await assetGroupService.createAssetGroup(payload)
       toast.success('Asset group created successfully')
     }
     

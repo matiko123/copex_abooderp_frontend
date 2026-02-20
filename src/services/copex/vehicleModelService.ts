@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ABS_MEDIA_API_URL_2 } from  '@/config/config.js'
+import { COPEX_API_URL } from  '@/config/config.js'
 
 export interface VehicleModel {
   id?: number
@@ -24,7 +24,7 @@ export const vehicleModelService = {
    * Get metadata for vehicle models
    */
   getMetadata() {
-    return axios.get<{ vehicle_types: string[]; accounts: any[] }>(`${ABS_MEDIA_API_URL_2}/vehicle-models/metadata`)
+    return axios.get<{ vehicle_types: string[]; accounts: any[] }>(`${COPEX_API_URL}/vehicle-models/metadata`)
   },
 
   /**
@@ -38,21 +38,21 @@ export const vehicleModelService = {
     sort_order?: 'asc' | 'desc'
     per_page?: number
   } = {}) {
-    return axios.get<{ success: boolean; data: VehicleModel[] }>(`${ABS_MEDIA_API_URL_2}/vehicle-models`, { params })
+    return axios.get<{ success: boolean; data: VehicleModel[] }>(`${COPEX_API_URL}/vehicle-models`, { params })
   },
 
   /**
    * Get distinct list of makes
    */
   getMakes() {
-    return axios.get<{ success: boolean; data: string[] }>(`${ABS_MEDIA_API_URL_2}/vehicle-models/makes`)
+    return axios.get<{ success: boolean; data: string[] }>(`${COPEX_API_URL}/vehicle-models/makes`)
   },
 
   /**
    * Get single vehicle model
    */
   getVehicleModel(id: number) {
-    return axios.get<{ success: boolean; data: VehicleModel }>(`${ABS_MEDIA_API_URL_2}/vehicle-models/${id}`)
+    return axios.get<{ success: boolean; data: VehicleModel }>(`${COPEX_API_URL}/vehicle-models/${id}`)
   },
 
   /**
@@ -60,7 +60,7 @@ export const vehicleModelService = {
    */
   createVehicleModel(payload: Partial<VehicleModel>) {
     return axios.post<{ success: boolean; message: string; data: VehicleModel }>(
-      `${ABS_MEDIA_API_URL_2}/vehicle-models`,
+      `${COPEX_API_URL}/vehicle-models`,
       payload
     )
   },
@@ -70,7 +70,7 @@ export const vehicleModelService = {
    */
   updateVehicleModel(id: number, payload: Partial<VehicleModel>) {
     return axios.put<{ success: boolean; message: string; data: VehicleModel }>(
-      `${ABS_MEDIA_API_URL_2}/vehicle-models/${id}`,
+      `${COPEX_API_URL}/vehicle-models/${id}`,
       payload
     )
   },
@@ -79,7 +79,7 @@ export const vehicleModelService = {
    * Delete vehicle model
    */
   deleteVehicleModel(id: number) {
-    return axios.delete<{ success: boolean; message: string }>(`${ABS_MEDIA_API_URL_2}/vehicle-models/${id}`)
+    return axios.delete<{ success: boolean; message: string }>(`${COPEX_API_URL}/vehicle-models/${id}`)
   }
 }
 

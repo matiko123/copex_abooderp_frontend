@@ -76,8 +76,8 @@ export const assetGroupService = {
    * Create a new asset group
    */
   createAssetGroup(payload: Partial<AssetGroup>) {
-    return axios.post<{ success: boolean; message: string; data: AssetGroup }>(
-      `${assetUrl()}/asset-groups`,
+    return axiosInstance.post<{ success: boolean; message: string; data: AssetGroup }>(
+      `asset-groups`,
       payload
     )
   },
@@ -86,8 +86,8 @@ export const assetGroupService = {
    * Update an asset group
    */
   updateAssetGroup(id: number, payload: Partial<AssetGroup>) {
-    return axios.put<{ success: boolean; message: string; data: AssetGroup }>(
-      `${assetUrl()}/asset-groups/${id}`,
+    return axiosInstance.put<{ success: boolean; message: string; data: AssetGroup }>(
+      `asset-groups/${id}`,
       payload
     )
   },
@@ -96,7 +96,7 @@ export const assetGroupService = {
    * Delete an asset group
    */
   deleteAssetGroup(id: number) {
-    return axios.delete<{ success: boolean; message: string }>(`${assetUrl()}/asset-groups/${id}`)
+    return axiosInstance.delete<{ success: boolean; message: string }>(`asset-groups/${id}`)
   },
 
   /**

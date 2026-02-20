@@ -75,6 +75,7 @@ const router = createRouter({
 	{ path: '/settings/accounts/financial-year/:id', component: () => import('../views/settings/accounts/fiscalYearViews.vue') },
 	  //asset settings
 	{ path: '/settings/asset-category', component: () => import('../views/settings/assets/AssetGroups.vue') },
+	{ path: '/settings/vehicle-models', component: () => import('../views/settings/assets/VehicleModels.vue') },
 
 	//assets
 		     { path: '/assets/fleet-master', component: () => import('../views/assets/FleetMaster/index.vue') },

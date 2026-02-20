@@ -783,6 +783,7 @@ const onSubmit = async () => {
   asset_group_id: form.value.group,   // must be asset_group_id
   code: form.value.code,
   name: form.value.name,
+  created_by : 1,
   acquisition_date: form.value.firstRegistration,
   acquisition_cost: form.value.acquisitionCost,
   salvage_value: form.value.salvageValue || 0,

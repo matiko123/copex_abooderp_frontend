@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const apiBase = (import.meta.env.VITE_APP_BASE_URL || '').replace(/\/+$/, '')
+const apiBase = (import.meta.env.COPEX_API_URL || '').replace(/\/+$/, '')
 
 const assetUrl = () => `${apiBase}`
 

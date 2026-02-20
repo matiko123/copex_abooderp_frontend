@@ -99,6 +99,7 @@ export const useAppSidebarMenuStore = defineStore("appSidebarMenu", () => {
 
 	},
 
+	/*
 		{
 		text: 'Dashboard',
 		is_header: true
@@ -275,5 +276,8 @@ export const useAppSidebarMenuStore = defineStore("appSidebarMenu", () => {
 		url: '/helper',
 		icon: 'fa fa-question-circle',
 		text: 'Helper'
-	}]
+	}
+		
+		*/
+	]
 });
